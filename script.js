@@ -28,7 +28,8 @@ var visitedCountries = {
     song: "Bossa Nova Dreams",
     description: "Colaboración especial con bossa nova contemporánea en Río de Janeiro",
     videoUrl: "https://youtube.com/watch?v=brasil-bossa",
-    type: "Colaboración reciente"
+    type: "Colaboración reciente",
+    continent: "america"
   },
   "CHL": {
     color: "#1abc9c",
@@ -38,7 +39,8 @@ var visitedCountries = {
     song: "?????",
     description: "???????????",
     videoUrl: "https://youtube.com/watch?v=india-bollywood",
-    type: "Reserved"
+    type: "Reserved",
+    continent: "america"
   }
 };
 
@@ -155,6 +157,55 @@ function updateStats() {
 
 // Inicializar estadísticas
 updateStats();
+
+// Datos de continentes con total de países
+const continentData = {
+  america: { total: 35, completed: 0, name: "América" },
+  europe: { total: 44, completed: 0, name: "Europa" },
+  asia: { total: 48, completed: 0, name: "Asia" },
+  africa: { total: 54, completed: 0, name: "África" },
+  oceania: { total: 14, completed: 0, name: "Oceanía" }
+};
+
+// Función para actualizar progreso de continentes
+function updateContinentProgress() {
+  // Resetear contadores
+  Object.keys(continentData).forEach(continent => {
+    continentData[continent].completed = 0;
+  });
+
+  // Contar colaboraciones por continente
+  Object.values(visitedCountries).forEach(country => {
+    if (country.continent && continentData[country.continent]) {
+      continentData[country.continent].completed++;
+    }
+  });
+
+  // Actualizar la UI
+  Object.keys(continentData).forEach(continent => {
+    const data = continentData[continent];
+    const percentage = data.total > 0 ? (data.completed / data.total * 100).toFixed(1) : 0;
+    
+    // Actualizar contador
+    const countElement = document.getElementById(`${continent}-count`);
+    if (countElement) {
+      countElement.textContent = `${data.completed}/${data.total}`;
+    }
+    
+    // Actualizar porcentaje
+    const percentageElement = document.getElementById(`${continent}-percentage`);
+    if (percentageElement) {
+      percentageElement.textContent = `${percentage}%`;
+    }
+    
+    // Actualizar barra de progreso
+    const progressBar = document.querySelector(`#${continent}-count`).closest('.continent-card').querySelector('.progress-fill');
+    if (progressBar) {
+      progressBar.setAttribute('data-progress', percentage);
+      // La animación se aplicará después
+    }
+  });
+}
 
 // Inicializar barras de progreso
 updateContinentProgress();
