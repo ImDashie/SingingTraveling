@@ -2,16 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Singing Traveling - Música sin Fronteras</title>
+  <title>Singing Traveling</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descubre mi viaje musical alrededor del mundo, colaborando con artistas de diferentes países">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
+  <!-- Otra fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -70,8 +73,9 @@
     }
 
     .header-title {
+      font-family: 'Pacifico', cursive;
       font-size: 3rem;
-      font-weight: 700;
+      font-weight: 400; /* Pacifico no usa muchos pesos */
       margin-bottom: 0.5rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
@@ -453,10 +457,10 @@
 
 <header>
   <div class="header-content">
-    <h1 class="header-title">🎵 Singing Traveling</h1>
-    <p class="header-subtitle">Música sin Fronteras</p>
+    <h1 class="header-title">Singing Traveling</h1>
+    <p class="header-subtitle">My 1st big project</p>
     <p class="header-description">
-      Un viaje musical alrededor del mundo, colaborando con artistas talentosos de diferentes países y culturas
+      Thank you for listening to my voice and feel free to sing with me ^^
     </p>
   </div>
 </header>
@@ -464,20 +468,20 @@
 <div class="main-container">
   <div class="map-section">
     <div class="map-header">
-      <h2>🗺️ Mapa de Colaboraciones Musicales</h2>
-      <p>Haz clic en los países coloreados para descubrir mis colaboraciones</p>
+      <h2>Collab Map</h2>
+      <p>Click on the colored countries to discover my collaborations</p>
       <div class="map-stats">
         <div class="stat-item">
           <span class="stat-number" id="countries-count">5</span>
-          <span class="stat-label">Países</span>
+          <span class="stat-label">Countries</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" id="songs-count">8</span>
-          <span class="stat-label">Canciones</span>
+          <span class="stat-label">Songs</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" id="artists-count">12</span>
-          <span class="stat-label">Artistas</span>
+          <span class="stat-label">Artists</span>
         </div>
       </div>
     </div>
@@ -488,13 +492,15 @@
     <!-- Perfil -->
     <div class="card">
       <div class="profile-image">
-        <i class="fas fa-microphone"></i>
+        <img src="https://yt3.googleusercontent.com/2C8nYh-rhfqE00koNaRnkvO6A-xYGUibGinw0NYSfv2Org_ygwQ6k-43vJTWl-QPi7RN_OmmEw=s160-c-k-c0x00ffffff-no-rj" alt="Dashie Litz" />
       </div>
       <h3 class="profile-name">Dashie Litz</h3>
-      <p class="profile-title">Cantante & Creadora de Contenido Musical</p>
+      <p class="profile-title">I do covers for fun ^^</p>
       <p class="profile-description">
-        Apasionada por la música y los viajes, creo covers y colaboraciones con artistas de todo el mundo. 
-        Mi misión es conectar culturas a través de la música universal.
+        Singing Traveling is my most ambitious project so far, I want to share this hobby with people from all
+        over the world, learning about different cultures and what's in every corner of the planet.
+
+        I hope you like it! ^^
       </p>
     </div>
 
@@ -504,40 +510,40 @@
         <div class="card-icon">
           <i class="fas fa-envelope"></i>
         </div>
-        <h3 class="card-title">Contacto</h3>
+        <h3 class="card-title">Contact</h3>
       </div>
-      
-      <a href="mailto:dashielitz@ejemplo.com" class="contact-item">
+
+      <a href="aun no xdddd" class="contact-item">
         <div class="contact-icon">
           <i class="fas fa-envelope"></i>
         </div>
         <div class="contact-info">
           <h4>Email</h4>
-          <p>dashielitz@ejemplo.com</p>
+          <p>aun no xdddd</p>
         </div>
       </a>
 
-      <a href="https://instagram.com/dashielitz" target="_blank" class="contact-item">
+      <a href="https://www.instagram.com/imdashie_zn/" target="_blank" class="contact-item">
         <div class="contact-icon">
           <i class="fab fa-instagram"></i>
         </div>
         <div class="contact-info">
           <h4>Instagram</h4>
-          <p>@dashielitz</p>
+          <p>@imdashie_zn</p>
         </div>
       </a>
 
-      <a href="https://youtube.com/@dashielitz" target="_blank" class="contact-item">
+      <a href="https://youtube.com/@ImDashieLz" target="_blank" class="contact-item">
         <div class="contact-icon">
           <i class="fab fa-youtube"></i>
         </div>
         <div class="contact-info">
           <h4>YouTube</h4>
-          <p>Canal Principal</p>
+          <p>Main Channel</p>
         </div>
       </a>
 
-      <a href="https://tiktok.com/@dashielitz" target="_blank" class="contact-item">
+      <a href="https://www.tiktok.com/@imdashielz?_t=ZS-8xv3zyObKk6&_r=1" target="_blank" class="contact-item">
         <div class="contact-icon">
           <i class="fab fa-tiktok"></i>
         </div>
@@ -554,28 +560,16 @@
         <div class="card-icon">
           <i class="fas fa-palette"></i>
         </div>
-        <h3 class="card-title">Leyenda</h3>
+        <h3 class="card-title">Color's meanining</h3>
       </div>
       <div class="legend">
         <div class="legend-item">
-          <div class="legend-color" style="background: #e74c3c;"></div>
-          <span class="legend-text">Colaboración reciente</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #8e44ad;"></div>
-          <span class="legend-text">Cover especial</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #f39c12;"></div>
-          <span class="legend-text">Proyecto destacado</span>
-        </div>
-        <div class="legend-item">
           <div class="legend-color" style="background: #3498db;"></div>
-          <span class="legend-text">Próxima colaboración</span>
+          <span class="legend-text">Done!</span>
         </div>
         <div class="legend-item">
           <div class="legend-color" style="background: #2ecc71;"></div>
-          <span class="legend-text">Experiencia única</span>
+          <span class="legend-text">Reserved</span>
         </div>
       </div>
     </div>
@@ -584,20 +578,20 @@
 
 <footer>
   <div class="footer-content">
-    <h3 class="footer-title">🎵 Singing Traveling</h3>
+    <h3 class="footer-title">Singing Traveling</h3>
     <p class="footer-description">
-      Conectando el mundo a través de la música. Cada canción es un puente entre culturas, 
-      cada colaboración una nueva aventura musical.
+      Since I was a child I have always been fascinated by the world and I have wondered what lies beyond,
+      Can you help me find out what's on the other side?
     </p>
-    
+
     <div class="social-links">
-      <a href="https://youtube.com/@dashielitz" target="_blank" class="social-link">
+      <a href="https://youtube.com/@ImDashieLz" target="_blank" class="social-link">
         <i class="fab fa-youtube"></i>
       </a>
-      <a href="https://instagram.com/dashielitz" target="_blank" class="social-link">
+      <a href="https://www.instagram.com/imdashie_zn/" target="_blank" class="social-link">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://tiktok.com/@dashielitz" target="_blank" class="social-link">
+      <a href="https://www.tiktok.com/@imdashielz?_t=ZS-8xv3zyObKk6&_r=1" target="_blank" class="social-link">
         <i class="fab fa-tiktok"></i>
       </a>
       <a href="https://spotify.com/artist/dashielitz" target="_blank" class="social-link">
@@ -607,7 +601,7 @@
         <i class="fas fa-envelope"></i>
       </a>
     </div>
-    
+
     <div class="footer-bottom">
       <p>&copy; 2025 Dashie Litz - Singing Traveling. Todos los derechos reservados.</p>
     </div>

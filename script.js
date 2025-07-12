@@ -20,58 +20,8 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 
 // Datos de países visitados con información más detallada
 var visitedCountries = {
-  "ARG": {
-    color: "#e74c3c",
-    country: "Argentina",
-    flag: "🇦🇷",
-    artist: "María González",
-    song: "Tango en Buenos Aires",
-    description: "Una hermosa colaboración de tango moderno con una artista local increíble",
-    videoUrl: "https://youtube.com/watch?v=argentina-tango",
-    type: "Colaboración reciente"
-  },
-  "AFG": {
-    color: "#8e44ad",
-    country: "Afganistán",
-    flag: "🇦🇫",
-    artist: "Ahmad Zahir Tribute",
-    song: "Gul-e-Surkh (Cover)",
-    description: "Un emotivo cover de una canción clásica afgana, honrando la rica tradición musical",
-    videoUrl: "https://youtube.com/watch?v=afghanistan-cover",
-    type: "Cover especial"
-  },
-  "ARE": {
-    color: "#f39c12",
-    country: "Emiratos Árabes Unidos",
-    flag: "🇦🇪",
-    artist: "Amira Al-Zahra",
-    song: "Desert Dreams",
-    description: "Fusión única de música árabe tradicional con pop moderno en Dubai",
-    videoUrl: "https://youtube.com/watch?v=uae-fusion",
-    type: "Proyecto destacado"
-  },
-  "ALB": {
-    color: "#3498db",
-    country: "Albania",
-    flag: "🇦🇱",
-    artist: "Elsa Lila",
-    song: "Balkan Harmony",
-    description: "Próxima colaboración con una de las voces más reconocidas de los Balcanes",
-    videoUrl: "#",
-    type: "Próxima colaboración"
-  },
-  "AGO": {
-    color: "#2ecc71",
-    country: "Angola",
-    flag: "🇦🇴",
-    artist: "Paulo Flores Jr.",
-    song: "Semba Moderno",
-    description: "Una experiencia musical increíble explorando los ritmos tradicionales angoleños",
-    videoUrl: "https://youtube.com/watch?v=angola-semba",
-    type: "Experiencia única"
-  },
   "BRA": {
-    color: "#e67e22",
+    color: "#3498db",
     country: "Brasil",
     flag: "🇧🇷",
     artist: "Caetano Veloso Jr.",
@@ -80,25 +30,15 @@ var visitedCountries = {
     videoUrl: "https://youtube.com/watch?v=brasil-bossa",
     type: "Colaboración reciente"
   },
-  "JPN": {
-    color: "#9b59b6",
-    country: "Japón",
-    flag: "🇯🇵",
-    artist: "Yuki Tanaka",
-    song: "Sakura Fusion",
-    description: "Fusión de J-Pop con elementos latinos, grabado en Tokio",
-    videoUrl: "https://youtube.com/watch?v=japan-fusion",
-    type: "Cover especial"
-  },
-  "IND": {
+  "CHL": {
     color: "#1abc9c",
-    country: "India",
-    flag: "🇮🇳",
-    artist: "Priya Sharma",
-    song: "Bollywood Beats",
-    description: "Colaboración vibrante mezclando Bollywood con ritmos latinos",
+    country: "Chile",
+    flag: "🇨🇱",
+    artist: "????",
+    song: "?????",
+    description: "???????????",
     videoUrl: "https://youtube.com/watch?v=india-bollywood",
-    type: "Proyecto destacado"
+    type: "Reserved"
   }
 };
 
@@ -107,7 +47,7 @@ function createCustomPopup(countryData) {
   const isComingSoon = countryData.videoUrl === "#";
   const buttonText = isComingSoon ? "🔜 Próximamente" : "🎵 Ver Video";
   const buttonClass = isComingSoon ? "popup-link coming-soon" : "popup-link";
-  
+
   return `
     <div class="custom-popup">
       <div class="popup-title">${countryData.country} ${countryData.flag}</div>
@@ -115,10 +55,10 @@ function createCustomPopup(countryData) {
       <div class="popup-song"><strong>Canción:</strong> "${countryData.song}"</div>
       <div class="popup-description">${countryData.description}</div>
       <div class="popup-type"><em>${countryData.type}</em></div>
-      ${isComingSoon ? 
-        `<div class="${buttonClass}" style="background: #95a5a6; cursor: default;">${buttonText}</div>` :
-        `<a href="${countryData.videoUrl}" target="_blank" class="${buttonClass}">${buttonText}</a>`
-      }
+      ${isComingSoon ?
+      `<div class="${buttonClass}" style="background: #95a5a6; cursor: default;">${buttonText}</div>` :
+      `<a href="${countryData.videoUrl}" target="_blank" class="${buttonClass}">${buttonText}</a>`
+  }
     </div>
   `;
 }
@@ -147,16 +87,16 @@ L.geoJSON(countriesData, {
   },
   onEachFeature: function(feature, layer) {
     const countryId = feature.id;
-    
+
     if (visitedCountries[countryId]) {
       const countryData = visitedCountries[countryId];
-      
+
       // Popup personalizado
       layer.bindPopup(createCustomPopup(countryData), {
         maxWidth: 300,
         className: 'custom-popup-wrapper'
       });
-      
+
       // Efectos hover
       layer.on({
         mouseover: function(e) {
@@ -166,7 +106,7 @@ L.geoJSON(countriesData, {
             fillOpacity: 1,
             color: '#2c3e50'
           });
-          
+
           if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
           }
@@ -205,9 +145,9 @@ L.geoJSON(countriesData, {
 // Actualizar estadísticas
 function updateStats() {
   const countriesCount = Object.keys(visitedCountries).length;
-  const songsCount = countriesCount + 3; // Algunas colaboraciones múltiples
-  const artistsCount = countriesCount + 4; // Algunos países con múltiples artistas
-  
+  const songsCount = countriesCount; // Algunas colaboraciones múltiples
+  const artistsCount = countriesCount; // Algunos países con múltiples artistas
+
   document.getElementById('countries-count').textContent = countriesCount;
   document.getElementById('songs-count').textContent = songsCount;
   document.getElementById('artists-count').textContent = artistsCount;
@@ -292,6 +232,17 @@ const additionalStyles = `
     .country-unvisited {
       cursor: default;
     }
+    
+    .profile-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+  }
   </style>
 `;
 
