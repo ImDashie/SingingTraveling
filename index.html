@@ -105,6 +105,13 @@
       align-items: start;
     }
 
+    /* Sección izquierda */
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
     /* Sección del mapa */
     .map-section {
       background: var(--white);
@@ -373,7 +380,6 @@
       background: var(--white);
       border-radius: 20px;
       padding: 2rem;
-      margin-top: 1.5rem;
       box-shadow: var(--shadow);
       transition: box-shadow 0.3s ease;
     }
@@ -501,7 +507,6 @@
       
       .continents-progress {
         padding: 1.5rem;
-        margin-top: 1rem;
       }
     }
 
@@ -603,106 +608,110 @@
 </header>
 
 <div class="main-container">
-  <div class="map-section">
-    <div class="map-header">
-      <h2>Collab Map</h2>
-      <p>Click on the colored countries to discover my collaborations</p>
-      <div class="map-stats">
-        <div class="stat-item">
-          <span class="stat-number" id="countries-count">5</span>
-          <span class="stat-label">Countries</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" id="songs-count">8</span>
-          <span class="stat-label">Songs</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" id="artists-count">12</span>
-          <span class="stat-label">Artists</span>
+  <div class="left-section">
+    <div class="map-section">
+      <div class="map-header">
+        <h2>Collab Map</h2>
+        <p>Click on the colored countries to discover my collaborations</p>
+        <div class="map-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="countries-count">5</span>
+            <span class="stat-label">Countries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="songs-count">8</span>
+            <span class="stat-label">Songs</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="artists-count">12</span>
+            <span class="stat-label">Artists</span>
+          </div>
         </div>
       </div>
+      <div id="map"></div>
     </div>
-    <div id="map"></div>
+
+    <!-- Sección de progreso por continentes -->
+    <div class="continents-progress">
+      <div class="progress-header">
+        <h3>Collaboration Progress by Continent</h3>
+        <p>My musical journey around the world</p>
+      </div>
+      <div class="continents-grid">
+        <div class="continent-card">
+          <div class="continent-info">
+            <div class="continent-icon">🌎</div>
+            <div class="continent-details">
+              <h4>América</h4>
+              <span class="continent-count" id="america-count">2/35</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="5.7" style="width: 0%;"></div>
+          </div>
+          <div class="progress-percentage" id="america-percentage">5.7%</div>
+        </div>
+
+        <div class="continent-card">
+          <div class="continent-info">
+            <div class="continent-icon">🌍</div>
+            <div class="continent-details">
+              <h4>Europa</h4>
+              <span class="continent-count" id="europe-count">0/44</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
+          </div>
+          <div class="progress-percentage" id="europe-percentage">0%</div>
+        </div>
+
+        <div class="continent-card">
+          <div class="continent-info">
+            <div class="continent-icon">🌏</div>
+            <div class="continent-details">
+              <h4>Asia</h4>
+              <span class="continent-count" id="asia-count">0/48</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
+          </div>
+          <div class="progress-percentage" id="asia-percentage">0%</div>
+        </div>
+
+        <div class="continent-card">
+          <div class="continent-info">
+            <div class="continent-icon">🌍</div>
+            <div class="continent-details">
+              <h4>África</h4>
+              <span class="continent-count" id="africa-count">0/54</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
+          </div>
+          <div class="progress-percentage" id="africa-percentage">0%</div>
+        </div>
+
+        <div class="continent-card">
+          <div class="continent-info">
+            <div class="continent-icon">🏝️</div>
+            <div class="continent-details">
+              <h4>Oceanía</h4>
+              <span class="continent-count" id="oceania-count">0/14</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
+          </div>
+          <div class="progress-percentage" id="oceania-percentage">0%</div>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Sección de progreso por continentes -->
-  <div class="continents-progress">
-    <div class="progress-header">
-      <h3>Collaboration Progress by Continent</h3>
-      <p>My musical journey around the world</p>
-    </div>
-    <div class="continents-grid">
-      <div class="continent-card">
-        <div class="continent-info">
-          <div class="continent-icon">🌎</div>
-          <div class="continent-details">
-            <h4>América</h4>
-            <span class="continent-count" id="america-count">2/35</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" data-progress="5.7" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percentage" id="america-percentage">5.7%</div>
-      </div>
-
-      <div class="continent-card">
-        <div class="continent-info">
-          <div class="continent-icon">🌍</div>
-          <div class="continent-details">
-            <h4>Europa</h4>
-            <span class="continent-count" id="europe-count">0/44</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percentage" id="europe-percentage">0%</div>
-      </div>
-
-      <div class="continent-card">
-        <div class="continent-info">
-          <div class="continent-icon">🌏</div>
-          <div class="continent-details">
-            <h4>Asia</h4>
-            <span class="continent-count" id="asia-count">0/48</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percentage" id="asia-percentage">0%</div>
-      </div>
-
-      <div class="continent-card">
-        <div class="continent-info">
-          <div class="continent-icon">🌍</div>
-          <div class="continent-details">
-            <h4>África</h4>
-            <span class="continent-count" id="africa-count">0/54</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percentage" id="africa-percentage">0%</div>
-      </div>
-
-      <div class="continent-card">
-        <div class="continent-info">
-          <div class="continent-icon">🏝️</div>
-          <div class="continent-details">
-            <h4>Oceanía</h4>
-            <span class="continent-count" id="oceania-count">0/14</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" data-progress="0" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percentage" id="oceania-percentage">0%</div>
-      </div>
-    </div>
-  </div>
   <div class="sidebar">
     <!-- Perfil -->
     <div class="card">
