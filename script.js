@@ -156,6 +156,17 @@ function updateStats() {
 // Inicializar estadísticas
 updateStats();
 
+// Inicializar barras de progreso
+updateContinentProgress();
+
+// Animar las barras de progreso al cargar
+setTimeout(() => {
+  document.querySelectorAll('.progress-fill').forEach(fill => {
+    const progress = fill.getAttribute('data-progress');
+    fill.style.width = `${progress}%`;
+  });
+}, 500);
+
 // Agregar estilos CSS adicionales para popups
 const additionalStyles = `
   <style>
